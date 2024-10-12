@@ -2,19 +2,16 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import dts from "vite-plugin-dts";
 import { resolve } from "path";
-import { readdirSync } from "fs";
 import { filter, includes, map } from "lodash-es";
+import { readdirSync } from "fs";
 
 function getDirectoriesSync(basePath: string) {
   const entries = readdirSync(basePath, { withFileTypes: true });
-
   return map(
     filter(entries, (entry) => entry.isDirectory()),
     (entry) => entry.name
   );
 }
-
-const COMP_NAMES = ["Button", "Icon"] as const;
 
 export default defineConfig({
   plugins: [
@@ -55,10 +52,13 @@ export default defineConfig({
           if (id.includes("/packages/hooks")) {
             return "hooks";
           }
-          if (id.includes("/packages/utils")) {
+          if (
+            id.includes("/packages/utils") ||
+            id.includes("plugin-vue:export-helper")
+          ) {
             return "utils";
           }
-          for (const item of COMP_NAMES) {
+          for (const item of getDirectoriesSync("../components")) {
             if (includes(id, `/packages/components/${item}`)) return item;
           }
         },
