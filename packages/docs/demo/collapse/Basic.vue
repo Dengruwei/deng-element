@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type CollapseItemName } from "eric-ui";
+import { type CollapseItemName } from "d-element";
 import { ref } from "vue";
 
 const activeNames = ref(["1"]);
