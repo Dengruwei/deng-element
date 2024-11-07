@@ -14,9 +14,9 @@ const props = defineProps<CollapseProps>();
 const emit = defineEmits<CollapseEmit>();
 const activeNames = ref(props.modelValue);
 
-if (props.accordion && activeNames.value.length > 1) {
-  console.warn("Accordion mode only allows one active panel");
-}
+// if (props.accordion && activeNames.value.length > 1) {
+//   debugWarn(COMP_NAME, "accordion mode should only have one active item");
+// }
 
 function handleItemClick(item: CollapseItemName) {
   let _activeNames = [...activeNames.value];

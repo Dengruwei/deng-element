@@ -1,6 +1,6 @@
 import { beforeAll, describe, expect, test, vi } from "vitest";
 import { DOMWrapper, mount, type VueWrapper } from "@vue/test-utils";
-// import transitionEvents from "./transitionEvents";
+import transitionEvents from "./transitionEvents";
 
 import Collapse from "./Collapse.vue";
 import CollapseItem from "./CollapseItem.vue";
@@ -140,41 +140,41 @@ describe("Collapse.vue", () => {
     expect(secondHeader.classes()).toContain("is-active");
   });
 
-//   test("手风琴模式 错误处理", () => {
-//     const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
-//     mount(
-//       () => (
-//         <Collapse accordion modelValue={["a", "b"]} {...{ onChange }}>
-//           <CollapseItem name="a" title="title a">
-//             content a
-//           </CollapseItem>
-//           <CollapseItem name="b" title="title b">
-//             content b
-//           </CollapseItem>
-//           <CollapseItem name="c" title="title c" disabled>
-//             content c
-//           </CollapseItem>
-//         </Collapse>
-//       ),
-//       {
-//         global: {
-//           stubs: ["ErIcon"],
-//         },
-//       }
-//     );
-//     expect(warn.mock.calls).toMatchInlineSnapshot(
-//       `
-//         [
-//           [
-//             [ErUIError: [ErCollapse] accordion mode should only have one active item],
-//           ],
-//         ]
-//       `
-//     );
-//   });
+  test("手风琴模式 错误处理", () => {
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+    mount(
+      () => (
+        <Collapse accordion modelValue={["a", "b"]} {...{ onChange }}>
+          <CollapseItem name="a" title="title a">
+            content a
+          </CollapseItem>
+          <CollapseItem name="b" title="title b">
+            content b
+          </CollapseItem>
+          <CollapseItem name="c" title="title c" disabled>
+            content c
+          </CollapseItem>
+        </Collapse>
+      ),
+      {
+        global: {
+          stubs: ["ErIcon"],
+        },
+      }
+    );
+    expect(warn.mock.calls).toMatchInlineSnapshot(
+      `
+        [
+          [
+            [ErUIError: [ErCollapse]: Accordion mode only allows one active panel],
+          ],
+        ]
+      `
+    );
+  });
 });
 
-/* describe("Collapse/transitionEvents.ts", () => {
+describe("Collapse/transitionEvents.ts", () => {
   const wrapper = mount(() => <div></div>);
   test("beforeEnter", () => {
     transitionEvents.beforeEnter(wrapper.element);
@@ -208,4 +208,4 @@ describe("Collapse.vue", () => {
     expect(wrapper.element.style.height).toBe("");
     expect(wrapper.element.style.overflow).toBe("");
   });
-}); */
+});

@@ -1,4 +1,4 @@
-import { makeInstaller } from "@toy-element/utils";
+import makeInstaller from "./makeInstaller";
 import components from "./components";
 import "@toy-element/theme";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -12,4 +12,5 @@ library.add(fas);
 const installer = makeInstaller(components);
 
 export * from "@toy-element/components";
+export * from "@toy-element/locale";
 export default installer;

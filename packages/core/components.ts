@@ -5,6 +5,16 @@ import {
   ErButtonGroup,
   ErCollapse,
   ErCollapseItem,
+  ErTooltip,
+  ErPopconfirm,
+  ErDropdown,
+  ErDropdownItem,
+  ErConfigProvider,
+  ErMessage,
+  ErNotification,
+  ErInput,
+  ErMessageBox,
+  ErLoading,
 } from "@toy-element/components";
 import type { Plugin } from "vue";
 
@@ -15,4 +25,14 @@ export default [
   ErButtonGroup,
   ErCollapse,
   ErCollapseItem,
+  ErTooltip,
+  ErPopconfirm,
+  ErDropdown,
+  ErDropdownItem,
+  ErConfigProvider,
+  ErMessage,
+  ErNotification,
+  ErInput,
+  ErMessageBox,
+  ErLoading,
 ] as Plugin[];

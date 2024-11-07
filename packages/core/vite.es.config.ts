@@ -5,7 +5,7 @@ import { resolve } from "path";
 import { delay, filter, includes, map } from "lodash-es";
 import { readdirSync } from "fs";
 import shell from "shelljs";
-import hooks from "./hooksPlugin";
+import { hooksPlugin as hooks } from "@toy-element/vite-plugins";
 import terser from "@rollup/plugin-terser";
 
 const TRY_MOVE_STYLES_DELAY = 800 as const;
