@@ -1,6 +1,6 @@
 import { describe, test, expect } from "vitest";
 import { nextTick } from "vue";
-import { notification, closeAll } from "./methods";
+import { notification } from "./methods";
 
 export const rAF = async () => {
   return new Promise((res) => {
